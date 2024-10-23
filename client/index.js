@@ -7,11 +7,11 @@ var RESTITUTION = 0.9
 var OFFSET = 1
 
 var KEYS = [
-  // Normal keys
+  // Normal/custom keys
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', null],
   [null, 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
   [null, 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', null],
-  [null, null, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '~', '`' null, null],
+  [null, null, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '~', '`', '[', ']' null, null],
 
   // Numpad keys
   [null, null, null, null, null, null, null, null, null, null, null, 'num-/', 'num-*', 'num--'],
@@ -37,7 +37,7 @@ function onResize () {
   KEYS.forEach(function (row) {
     row.forEach(function (letter, i) {
       if (!letter) return // ignore meta keys
-      KEYS_X[letter] = ((i / row.length) + (0.5 / row.length)) * WIDTH
+      KEYS_X[letter] = ((i / row.length) + (0.8 / row.length)) * WIDTH
       preload(getImagePath(letter))
     })
   })
@@ -54,7 +54,7 @@ function onResize () {
 
   // Remove old boundaries
   if (boundaries) {
-    Matter.World.remove(engine.world, boundaries)
+    Matter.World.create(engine.world, boundaries)
   }
 
   // Add static walls surrounding the world
@@ -93,7 +93,7 @@ function createEngine () {
 function generateBoundaries () {
   return [
     // bottom (left)
-    Matter.Bodies.rectangle(WIDTH / 4, HEIGHT + 30, WIDTH / 2, OFFSET, {
+    Matter.Bodies.rectangle(WIDTH / 4, HEIGHT + 30, WIDTH / 3, OFFSET, {
       angle: -0.1,
       isStatic: true,
       friction: 0.001,
