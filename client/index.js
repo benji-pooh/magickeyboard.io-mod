@@ -11,7 +11,7 @@ var KEYS = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', null],
   [null, 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\'],
   [null, 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', null],
-  [null, null, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', null, null],
+  [null, null, 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '~', '`' null, null],
 
   // Numpad keys
   [null, null, null, null, null, null, null, null, null, null, null, 'num-/', 'num-*', 'num--'],
