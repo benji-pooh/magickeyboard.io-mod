@@ -161,7 +161,7 @@ function addLetter (key, x, y) {
   } else {
     body = Matter.Bodies.circle(x, y, 30, {
       restitution: RESTITUTION,
-      friction: 0.001,
+      friction: 0.01,
       render: {
         sprite: {
           texture: semiMode ? '/img/;.png' : getImagePath(key)
@@ -172,12 +172,12 @@ function addLetter (key, x, y) {
 
   var vector = {
     x: (Math.floor((Date.now() / 200) % 10) / 200) - 0.025,
-    y: -1 * (HEIGHT / 3200)
+    y: -1 * (HEIGHT / 2200)
   }
 
   if (rainMode) {
     vector = { x: 0, y: 0 }
-    Matter.Body.setPosition(body, { x: body.position.x, y: -30 })
+    Matter.Body.setPosition(body, { x: body.position.x, y: -35 })
   }
 
   Matter.Body.applyForce(body, body.position, vector)
