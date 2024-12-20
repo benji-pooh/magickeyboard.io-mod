@@ -25,7 +25,7 @@ var WIDTH, HEIGHT, KEYS_X
 var boundaries, engine, platform
 var lastKeys = ''
 var hexMode = false
-var rainMode = false
+var rainMode = true
 var semiMode = false
 var spinMode = false
 
@@ -96,18 +96,18 @@ function generateBoundaries () {
     Matter.Bodies.rectangle(WIDTH / 4, HEIGHT + 30, WIDTH / 3, OFFSET, {
       angle: -0.1,
       isStatic: true,
-      friction: 0.001,
+      friction: 0.01,
       render: {
-        visible: false
+        visible: true
       }
     }),
     // bottom (right)
     Matter.Bodies.rectangle((WIDTH / 4) * 3, HEIGHT + 30, WIDTH / 2, OFFSET, {
       angle: 0.1,
       isStatic: true,
-      friction: 0.001,
+      friction: 0.01,
       render: {
-        visible: false
+        visible: true
       }
     }),
     // platform to catch letters that fall offscreen
@@ -115,7 +115,7 @@ function generateBoundaries () {
       isStatic: true,
       friction: 1, // letters should stop sliding with sleeping=true
       render: {
-        visible: false
+        visible: true
       }
     })
   ]
